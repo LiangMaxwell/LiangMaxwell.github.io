@@ -1,0 +1,42 @@
+<!DOCTYPE html><html lang="zh-CN" theme-mode="dark"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>使用Gitee和PicGo搭建个人图床 | LiangMaxwell's Blog</title><link rel="icon" type="image/x-icon" href="/favicon.ico"><script>var config = {"root":"/","search":{"preload":false,"activeHolder":"Enter here","blurHolder":"Search","noResult":"Data \"$0\" not found"},"code":{"codeInfo":"$0 - $1 lines","copy":"copy","copyFinish":"copied","expand":"expand"}}</script><script src="//unpkg.com/mermaid@9.2.2/dist/mermaid.min.js"></script><link type="text/css" rel="stylesheet" href="//unpkg.com/lightgallery@2.7.1/css/lightgallery.css"><link type="text/css" rel="stylesheet" href="//unpkg.com/lightgallery@2.7.1/css/lg-zoom.css"><link type="text/css" rel="stylesheet" href="//unpkg.com/lightgallery@2.7.1/css/lg-thumbnail.css"><link rel="stylesheet" href="/css/arknights.css"><script>if (window.localStorage.getItem('theme-mode') === 'light') document.documentElement.setAttribute('theme-mode', 'light')
+if (window.localStorage.getItem('theme-mode') === 'dark') document.documentElement.setAttribute('theme-mode', 'dark')</script><style>@font-face {
+ font-family: BenderLight;
+ src: local('Bender'), url("/font/BenderLight.ttf");
+}
+@font-face {
+ font-family: 'JetBrains Mono';
+ src: local('JetBrains Mono'), url('/font/JetBrainsMono-Regular.woff2') format('woff2');
+}</style><meta name="generator" content="Hexo 6.3.0"></head><body><div class="loading" style="opacity: 0"><div class="loadingBar left"></div><div class="loadingBar right"></div></div><main><header class="closed"><nav><div class="navBtn hide"><i class="navBtnIcon"><span class="navBtnIconBar"></span><span class="navBtnIconBar"></span><span class="navBtnIconBar"></span></i></div><div class="navItem" id="search-header"><span class="navItemTitle"><input autocomplete="off" autocorrect="off" autocapitalize="none" placeholder="Search" spellcheck="false" maxlength="50" type="text" id="search-input"></span></div><div class="navItem" id="search-holder"></div><div class="search-popup"><div id="search-result"></div></div><ol class="navContent"><li class="navItem"><a class="navBlock" href="/"><span class="navItemTitle">Home</span></a></li><li class="navItem" matchdata="categories,tags"><a class="navBlock" href="/archives/"><span class="navItemTitle">Archives</span></a></li><li class="navItem"><a class="navBlock" href="/about/"><span class="navItemTitle">About</span></a></li><li class="navItem"><a class="navBlock" href="/friends/"><span class="navItemTitle">Friends</span></a></li></ol></nav></header><article><div id="post-bg"><div id="post-title"><h1>使用Gitee和PicGo搭建个人图床</h1><div id="post-info"><span>First Post: <div class="control"><time datetime="2021-10-13T09:23:54.000Z" id="date"> 2021-10-13</time></div></span><br><span>Last Update: <div class="control"><time datetime="2023-04-22T11:15:35.937Z" id="updated"> 2023-04-22</time></div></span><br><span>Word Count: <div class="control">393</div></span><br><span>Read Time: <div class="control">1 min</div></span></div></div><hr><div id="post-content"><h1 id="使用Gitee和PicGo搭建个人图床"><a href="#使用Gitee和PicGo搭建个人图床" class="headerlink" title="使用Gitee和PicGo搭建个人图床"></a>使用Gitee和PicGo搭建个人图床</h1><p>22年补充说明，Gitee图床已经寄了，最后还是用了阿里云的OSS，sad</p>
+<p>在之前的markdown文件里，加载图片使用的外链都是使用的图床网站<a target="_blank" rel="noopener" href="https://imgtu.com/">路过图床</a>。但是在搭建博客的时候发现了一个严峻的问题，我上传的用于背景的二次元图片全被删除，原来是违反了图床规定：</p>
+<p class='item-img' data-src='https://liangmaxwell-blog.oss-cn-shanghai.aliyuncs.com/picture/img/picbed1.png'><img src="https://liangmaxwell-blog.oss-cn-shanghai.aliyuncs.com/picture/img/picbed1.png"></p>
+<p>在网上找了其他图床之后，发现也有类似的条款。为了实现Blog二刺螈化，还是搭建一个个人图床比较稳妥</p>
+<h2 id="步骤"><a href="#步骤" class="headerlink" title="步骤"></a>步骤</h2><p>首先是在<a target="_blank" rel="noopener" href="https://gitee.com/">Gitee</a>上面创建一个仓库，作为储存图片的仓库</p>
+<p class='item-img' data-src='https://liangmaxwell-blog.oss-cn-shanghai.aliyuncs.com/picture/img/picbed3.png'><img src="https://liangmaxwell-blog.oss-cn-shanghai.aliyuncs.com/picture/img/picbed3.png"></p>
+<p>点击我 -&gt; 设置 -&gt; 私人令牌（token）  </p>
+<p>注意这个令牌只会显示一次，需要及时复制下来，这里我已经加好了私人令牌，如果忘记了token，可以重新生成</p>
+<p class='item-img' data-src='https://liangmaxwell-blog.oss-cn-shanghai.aliyuncs.com/picture/img/picbed4.png'><img src="https://liangmaxwell-blog.oss-cn-shanghai.aliyuncs.com/picture/img/picbed4.png"></p>
+<p>然后是神奇的软件<a target="_blank" rel="noopener" href="https://github.com/Molunerfinn/PicGo/releases">PicGo</a>，下载插件gitee-uploader和github-plus，然后在图床设置里面配置仓库路径，分支和token，注意在仓库栏填写的是仓库的URL</p>
+<p class='item-img' data-src='https://liangmaxwell-blog.oss-cn-shanghai.aliyuncs.com/picture/img/picbed2.png'><img src="https://liangmaxwell-blog.oss-cn-shanghai.aliyuncs.com/picture/img/picbed2.png"></p>
+<p>然后就能利用Gitee实现自己的图床了。<br>顺便还可以使用一些<a target="_blank" rel="noopener" href="https://www.bejson.com/ui/compress_img/">网站</a>将图像压缩，提高外链加载速度。</p>
+<h2 id="为什么不在Github搭建图床？"><a href="#为什么不在Github搭建图床？" class="headerlink" title="为什么不在Github搭建图床？"></a>为什么不在Github搭建图床？</h2><p>1.占用Github资源，为什么不白嫖Gitee呢（</p>
+<p>2.在墙内访问速度快很多</p>
+<p>3.PicGo每次上传图片都相当于一次git提交，上传了一堆图片导致Github全绿，这个是否有点…..</p>
+<p class='item-img' data-src='https://liangmaxwell-blog.oss-cn-shanghai.aliyuncs.com/picture/img/picbed4.jpg'><img src="https://liangmaxwell-blog.oss-cn-shanghai.aliyuncs.com/picture/img/picbed4.jpg"></p>
+<div id="paginator"></div></div><div id="post-footer"><div id="pages"><div class="footer-link" style="width: 50%;text-align:right;border-right:1px #fe2 solid"><a href="/2021/10/14/ru-he-pwn-diao-yi-ge-qia-xi-ou-ji-suan-qi/">← Next 如何PWN掉一个卡西欧计算器</a></div><div class="footer-link" style="width: 50%;right:1px;border-left:1px #fe2 solid"><a href="/2021/10/12/chive-qiu-ji-xin-sheng-sai-misc-ti-jie/">Chive秋季新生赛Misc题解 Prev →</a></div></div></div></div><div class="bottom-btn"><div><a id="to-top" onClick="scrolls.scrolltop();" title="To Top" style="opacity: 0; display: none;">∧</a><a id="to-index" href="#toc-div" title="To Catalog">≡</a><a id="color-mode" onClick="colorMode.change()" title="Change Theme"></a></div></div></article><aside><div id="about"><a href="/" id="logo"><img src="https://ak.hypergryph.com/assets/index/images/ak/pc/faction/1.png" alt="Logo"></a><h1 id="Dr"><a href="/">凉彧Maxwell</a></h1><div id="description"><p>凉彧のBlog</p></div></div><div id="aside-block"><div id="toc-div"><h1>Catalog</h1><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%BD%BF%E7%94%A8Gitee%E5%92%8CPicGo%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%9B%BE%E5%BA%8A"><span class="toc-number">1.</span> <span class="toc-text">使用Gitee和PicGo搭建个人图床</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%AD%A5%E9%AA%A4"><span class="toc-number">1.1.</span> <span class="toc-text">步骤</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%BA%E4%BB%80%E4%B9%88%E4%B8%8D%E5%9C%A8Github%E6%90%AD%E5%BB%BA%E5%9B%BE%E5%BA%8A%EF%BC%9F"><span class="toc-number">1.2.</span> <span class="toc-text">为什么不在Github搭建图床？</span></a></li></ol></li></ol></div></div><footer><nobr>Published with <a target="_blank" rel="noopener" href="http://hexo.io">Hexo</a></nobr><wbr><nobr> Theme <a target="_blank" rel="noopener" href="https://github.com/Yue-plus/hexo-theme-arknights">Arknights</a></nobr><wbr><nobr>by <a target="_blank" rel="noopener" href="https://github.com/Yue-plus">Yue_plus</a></nobr></footer></aside></main><canvas id="canvas-dust"></canvas><script src="/js/search.js"></script><script src="/js/arknights.js"></script><script src="//unpkg.com/lightgallery@2.7.1/lightgallery.min.js"></script><script src="//unpkg.com/lightgallery@2.7.1/plugins/zoom/lg-zoom.min.js"></script><script src="//unpkg.com/lightgallery@2.7.1/plugins/thumbnail/lg-thumbnail.min.js"></script><script src="/js/pjax.js"></script><script class="pjax-js">reset= () => {code.findCode();
+document.querySelector('.lg-container')?.remove()
+lightGallery(document.getElementById('post-bg'), {
+  plugins: [lgZoom,lgThumbnail],
+  selector: '.item-img'})}</script><script>window.addEventListener("load",() => {pjax = new Pjax({
+ cacheBust: false,
+ selectors: ['title','article','#aside-block','.pjax-js'],
+ switches: {'article': Pjax.switches.sideBySide},
+ switchesOptions: {
+   'article': {
+     classNames: {
+       remove: "pjax-out",
+       add: "pjax-in"
+     }
+   }
+ }
+});
+document.addEventListener("pjax:complete", reset);reset()})</script></body></html>
