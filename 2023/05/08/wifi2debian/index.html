@@ -1,0 +1,88 @@
+<!DOCTYPE html><html lang="zh-CN" theme-mode="dark"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>随身WiFi的刷机记录 | LiangMaxwell's Blog</title><link rel="icon" type="image/x-icon" href="/favicon.ico"><script>var config = {"root":"/","search":{"preload":false,"activeHolder":"Enter here","blurHolder":"Search","noResult":"Data \"$0\" not found"},"code":{"codeInfo":"$0 - $1 lines","copy":"copy","copyFinish":"copied","expand":"expand"}}</script><script src="//unpkg.com/mermaid@9.2.2/dist/mermaid.min.js"></script><link type="text/css" rel="stylesheet" href="//unpkg.com/lightgallery@2.7.1/css/lightgallery.css"><link type="text/css" rel="stylesheet" href="//unpkg.com/lightgallery@2.7.1/css/lg-zoom.css"><link type="text/css" rel="stylesheet" href="//unpkg.com/lightgallery@2.7.1/css/lg-thumbnail.css"><link rel="stylesheet" href="/css/arknights.css"><script>if (window.localStorage.getItem('theme-mode') === 'light') document.documentElement.setAttribute('theme-mode', 'light')
+if (window.localStorage.getItem('theme-mode') === 'dark') document.documentElement.setAttribute('theme-mode', 'dark')</script><style>@font-face {
+ font-family: BenderLight;
+ src: local('Bender'), url("/font/BenderLight.ttf");
+}
+@font-face {
+ font-family: 'JetBrains Mono';
+ src: local('JetBrains Mono'), url('/font/JetBrainsMono-Regular.woff2') format('woff2');
+}</style><meta name="generator" content="Hexo 6.3.0"></head><body><div class="loading" style="opacity: 0"><div class="loadingBar left"></div><div class="loadingBar right"></div></div><main><header class="closed"><nav><div class="navBtn hide"><i class="navBtnIcon"><span class="navBtnIconBar"></span><span class="navBtnIconBar"></span><span class="navBtnIconBar"></span></i></div><div class="navItem" id="search-header"><span class="navItemTitle"><input autocomplete="off" autocorrect="off" autocapitalize="none" placeholder="Search" spellcheck="false" maxlength="50" type="text" id="search-input"></span></div><div class="navItem" id="search-holder"></div><div class="search-popup"><div id="search-result"></div></div><ol class="navContent"><li class="navItem"><a class="navBlock" href="/"><span class="navItemTitle">Home</span></a></li><li class="navItem" matchdata="categories,tags"><a class="navBlock" href="/archives/"><span class="navItemTitle">Archives</span></a></li><li class="navItem"><a class="navBlock" href="/about/"><span class="navItemTitle">About</span></a></li><li class="navItem"><a class="navBlock" href="/friends/"><span class="navItemTitle">Friends</span></a></li></ol></nav></header><article><div id="post-bg"><div id="post-title"><h1>随身WiFi的刷机记录</h1><div id="post-info"><span>First Post: <div class="control"><time datetime="2023-05-08T08:10:16.000Z" id="date"> 2023-05-08</time></div></span><br><span>Last Update: <div class="control"><time datetime="2023-05-08T08:15:47.393Z" id="updated"> 2023-05-08</time></div></span><br><span>Word Count: <div class="control">1.1k</div></span><br><span>Read Time: <div class="control">4 min</div></span></div></div><hr><div id="post-content"><h1 id="记一次随身WiFi的刷机折腾"><a href="#记一次随身WiFi的刷机折腾" class="headerlink" title="记一次随身WiFi的刷机折腾"></a>记一次随身WiFi的刷机折腾</h1><h2 id="前期准备"><a href="#前期准备" class="headerlink" title="前期准备"></a>前期准备</h2><p>1.淘宝上卖9块8实付款6.8的随身WiFi</p>
+<p>个人推荐新讯，找最便宜的买就行，商家基本上都是亏本卖设备然后靠流量套餐赚钱（然而被刷机了十万甚至九万个）</p>
+<p>2.相关驱动和程序</p>
+<p>由于之前搞过安卓开发，电脑上有现成的adb以及Interface驱动，没有的话可以自行安装adb以及Android SDK tools，adb放环境变量里，选择安卓开发包的<code>\Android\Sdk\extras\google\usb_driver\android_winusb.inf</code>右键安装驱动程序</p>
+<p>3.准备好刷机包</p>
+<p><a target="_blank" rel="noopener" href="https://pan.baidu.com/s/1aialm5sRlgodtaDud8a_Dw?pwd=guz5">百度网盘链接</a>，下载解压之后一个是base底包，一个是debian包</p>
+<h2 id="刷机流程"><a href="#刷机流程" class="headerlink" title="刷机流程"></a>刷机流程</h2><h3 id="1-插入设备"><a href="#1-插入设备" class="headerlink" title="1.插入设备"></a>1.插入设备</h3><p class='item-img' data-src='https://liangmaxwell-blog.oss-cn-shanghai.aliyuncs.com/picture/wd1.png'><img src="https://liangmaxwell-blog.oss-cn-shanghai.aliyuncs.com/picture/wd1.png"></p>
+<p>插入设备后显示是其他设备Android，要先对这个设备更新驱动</p>
+<p><strong>右键-&gt;更新驱动程序-&gt;浏览我的电脑以查找驱动程序-&gt;让我从计算机上的可用驱动程序列表中选取-&gt;在Android device中选择Android ADB Interface</strong></p>
+<p>如果没这个驱动的话就按照上面说的选择安卓开发包的\Android\Sdk\extras\google\usb_driver\android_winusb.inf右键安装</p>
+<p>这样就能得到Android ADB interface这个驱动，然后给这个设备应用这个驱动，会弹出警告，无所谓直接选择<code>是</code></p>
+<p class='item-img' data-src='https://liangmaxwell-blog.oss-cn-shanghai.aliyuncs.com/picture/wd2.png'><img src="https://liangmaxwell-blog.oss-cn-shanghai.aliyuncs.com/picture/wd2.png"></p>
+<p>更改之后就可以看到Android Device设备了（设备管理器显示的是三个，但是实际上只有一个，重新插拔之后又变成一个了，神奇）!</p>
+<p class='item-img' data-src='https://liangmaxwell-blog.oss-cn-shanghai.aliyuncs.com/picture/wd3.png'><img src="https://liangmaxwell-blog.oss-cn-shanghai.aliyuncs.com/picture/wd3.png"></p>
+<h3 id="2-fastboot"><a href="#2-fastboot" class="headerlink" title="2.fastboot"></a>2.fastboot</h3><p>设备显示没问题后就可以使用adb进行后续操作</p>
+<p>首先控制台输入</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">adb reboot-bootloader  #使设备进入fastboot模式<br></code></pre></td></tr></table></figure>
+
+<p>之后输入</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">fastboot devices  #查看当前设备<br></code></pre></td></tr></table></figure>
+
+<p class='item-img' data-src='https://liangmaxwell-blog.oss-cn-shanghai.aliyuncs.com/picture/wd4.png'><img src="https://liangmaxwell-blog.oss-cn-shanghai.aliyuncs.com/picture/wd4.png"></p>
+<h3 id="3-刷入包"><a href="#3-刷入包" class="headerlink" title="3.刷入包"></a>3.刷入包</h3><p>首先需要刷入底包</p>
+<p>去之前下载解压的base包下，双击执行<code>flash.bat</code></p>
+<p class='item-img' data-src='https://liangmaxwell-blog.oss-cn-shanghai.aliyuncs.com/picture/wd5.png'><img src="https://liangmaxwell-blog.oss-cn-shanghai.aliyuncs.com/picture/wd5.png"></p>
+<p>按任意键继续，三次，完成后窗口自动消失</p>
+<p>之后刷入Debian包，进入debian文件夹运行<code>flash.bat</code></p>
+<p>这个有点慢，稍微等个几分钟，按任意键继续，运行完即可</p>
+<p class='item-img' data-src='https://liangmaxwell-blog.oss-cn-shanghai.aliyuncs.com/picture/wd6.png'><img src="https://liangmaxwell-blog.oss-cn-shanghai.aliyuncs.com/picture/wd6.png" alt="image-20230508144212275"></p>
+<p>泡壶龙井茶慢慢等着了，等到全部刷入之后，重启</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs shell"><span class="hljs-meta prompt_">#</span><span class="language-bash">刷入完成之后</span><br>fastboot reboot #重启<br></code></pre></td></tr></table></figure>
+
+<p class='item-img' data-src='https://liangmaxwell-blog.oss-cn-shanghai.aliyuncs.com/picture/wd7.png'><img src="https://liangmaxwell-blog.oss-cn-shanghai.aliyuncs.com/picture/wd7.png" alt="image-20230508144539784"></p>
+<h3 id="4-更新驱动"><a href="#4-更新驱动" class="headerlink" title="4.更新驱动"></a>4.更新驱动</h3><p>经过上面的刷机之后，现在棒子里面已经是一个debian系统了，现在需要操作这个系统，拔下来重新插入之后，设备管理器显示的还是安卓设备，需要把该设备的驱动换成基于NDIS的远程连接这个驱动</p>
+<p>首先先对那个安卓设备右键选择 <strong>卸载设备</strong>，并且删除驱动软件</p>
+<p>拔下来再插入后就有了一个新的其他设备RNDIS</p>
+<p class='item-img' data-src='https://liangmaxwell-blog.oss-cn-shanghai.aliyuncs.com/picture/wd8.png'><img src="https://liangmaxwell-blog.oss-cn-shanghai.aliyuncs.com/picture/wd8.png" alt="image-20230508145215264"></p>
+<p>对这个其他设备 <strong>右键-&gt;更新驱动程序-&gt;浏览我的电脑以查找驱动程序-&gt;让我从计算机上的可用驱动程序列表中选取-&gt;选择网络适配器-&gt;在厂商Microsoft中选择基于远程NDIS的Internet共享设备</strong></p>
+<p class='item-img' data-src='https://liangmaxwell-blog.oss-cn-shanghai.aliyuncs.com/picture/wd9.png'><img src="https://liangmaxwell-blog.oss-cn-shanghai.aliyuncs.com/picture/wd9.png" alt="image-20230508145440971"></p>
+<p>无视警告，更新驱动设备</p>
+<p>等待设备管理器加载完成，这时候右边会出现一个提示</p>
+<p class='item-img' data-src='https://liangmaxwell-blog.oss-cn-shanghai.aliyuncs.com/picture/wd10.png'><img src="https://liangmaxwell-blog.oss-cn-shanghai.aliyuncs.com/picture/wd10.png" alt="image-20230508145539956"></p>
+<p>就表示已经成功配置好网络了</p>
+<h3 id="5-系统配置"><a href="#5-系统配置" class="headerlink" title="5.系统配置"></a>5.系统配置</h3><p>但是现在这网络相当于一个不能出网的局域网，所以需要重新配置一下网络</p>
+<p>在本机电脑上ipconfig查看这个设备的IP地址<code>192.168.68.1</code></p>
+<p class='item-img' data-src='https://liangmaxwell-blog.oss-cn-shanghai.aliyuncs.com/picture/wd11.png'><img src="https://liangmaxwell-blog.oss-cn-shanghai.aliyuncs.com/picture/wd11.png" alt="image-20230508145658100"></p>
+<p>通过SSH连接这个设备，账户是<code>user</code>，密码是<code>1</code></p>
+<p class='item-img' data-src='https://liangmaxwell-blog.oss-cn-shanghai.aliyuncs.com/picture/wd12.png'><img src="https://liangmaxwell-blog.oss-cn-shanghai.aliyuncs.com/picture/wd12.png" alt="image-20230508145816716"></p>
+<p>(注意，如果之前曾经搞过刷机，会有着之前同host留下的历史文件，再次SSH连接时会爆出一堆乱码错误，需要去user目录下的.ssh文件夹，删除所有存档就行了）</p>
+<p><code>sudo su </code>进入root，使用<code>nmtui</code>更新WiFi连接状态，连上俱乐部的WiFi就可以出网了（手机开个热点一样）</p>
+<p class='item-img' data-src='https://liangmaxwell-blog.oss-cn-shanghai.aliyuncs.com/picture/wd13.png'><img src="https://liangmaxwell-blog.oss-cn-shanghai.aliyuncs.com/picture/wd13.png" alt="image-20230508150017156"></p>
+<p>进入nmtui，选择第二个激活网络连接</p>
+<p class='item-img' data-src='https://liangmaxwell-blog.oss-cn-shanghai.aliyuncs.com/picture/wd14.png'><img src="https://liangmaxwell-blog.oss-cn-shanghai.aliyuncs.com/picture/wd14.png" alt="image-20230508150040119"></p>
+<p>选择俱乐部的WiFi，输入密码连接</p>
+<p class='item-img' data-src='https://liangmaxwell-blog.oss-cn-shanghai.aliyuncs.com/picture/wd15.png'><img src="https://liangmaxwell-blog.oss-cn-shanghai.aliyuncs.com/picture/wd15.png" alt="image-20230508150054288"></p>
+<p>连接上WiFi后，<code>ifconfig</code>可以看到已经分配新的IP了</p>
+<p class='item-img' data-src='https://liangmaxwell-blog.oss-cn-shanghai.aliyuncs.com/picture/wd16.png'><img src="https://liangmaxwell-blog.oss-cn-shanghai.aliyuncs.com/picture/wd16.png" alt="image-20230508150710719"></p>
+<h2 id="后续使用"><a href="#后续使用" class="headerlink" title="后续使用"></a>后续使用</h2><p>当它获得WiFi分配的IP后，就可以把它随便找个插头一插，供上电之后就能通过WiFi下的局域网去SSH连接这个Debian系统了</p>
+<p class='item-img' data-src='https://liangmaxwell-blog.oss-cn-shanghai.aliyuncs.com/picture/wd17.png'><img src="https://liangmaxwell-blog.oss-cn-shanghai.aliyuncs.com/picture/wd17.png" alt="image-20230508150900243"></p>
+<p>由于可以出网了，所以apt更新，装docker，跑服务都可以，自由发挥了</p>
+<p class='item-img' data-src='https://liangmaxwell-blog.oss-cn-shanghai.aliyuncs.com/picture/wd18.png'><img src="https://liangmaxwell-blog.oss-cn-shanghai.aliyuncs.com/picture/wd18.png" alt="image-20230508150948575"></p>
+<p>而且最神奇的是这个b玩意的配置竟然还挺高的，用docker跑个服务当个靶机还是很合适的</p>
+<div id="paginator"></div></div><div id="post-footer"><div id="pages" style="justify-content: flex-end"><div class="footer-link" style="width: 50%;right:1px;border-left:1px #fe2 solid"><a href="/2023/04/22/hello-world/">Hello Hexo Prev →</a></div></div></div></div><div class="bottom-btn"><div><a id="to-top" onClick="scrolls.scrolltop();" title="To Top" style="opacity: 0; display: none;">∧</a><a id="to-index" href="#toc-div" title="To Catalog">≡</a><a id="color-mode" onClick="colorMode.change()" title="Change Theme"></a></div></div></article><aside><div id="about"><a href="/" id="logo"><img src="https://ak.hypergryph.com/assets/index/images/ak/pc/faction/1.png" alt="Logo"></a><h1 id="Dr"><a href="/">凉彧Maxwell</a></h1><div id="description"><p>凉彧のBlog</p></div></div><div id="aside-block"><div id="toc-div"><h1>Catalog</h1><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E8%AE%B0%E4%B8%80%E6%AC%A1%E9%9A%8F%E8%BA%ABWiFi%E7%9A%84%E5%88%B7%E6%9C%BA%E6%8A%98%E8%85%BE"><span class="toc-number">1.</span> <span class="toc-text">记一次随身WiFi的刷机折腾</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%89%8D%E6%9C%9F%E5%87%86%E5%A4%87"><span class="toc-number">1.1.</span> <span class="toc-text">前期准备</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%88%B7%E6%9C%BA%E6%B5%81%E7%A8%8B"><span class="toc-number">1.2.</span> <span class="toc-text">刷机流程</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-%E6%8F%92%E5%85%A5%E8%AE%BE%E5%A4%87"><span class="toc-number">1.2.1.</span> <span class="toc-text">1.插入设备</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-fastboot"><span class="toc-number">1.2.2.</span> <span class="toc-text">2.fastboot</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-%E5%88%B7%E5%85%A5%E5%8C%85"><span class="toc-number">1.2.3.</span> <span class="toc-text">3.刷入包</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-%E6%9B%B4%E6%96%B0%E9%A9%B1%E5%8A%A8"><span class="toc-number">1.2.4.</span> <span class="toc-text">4.更新驱动</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-%E7%B3%BB%E7%BB%9F%E9%85%8D%E7%BD%AE"><span class="toc-number">1.2.5.</span> <span class="toc-text">5.系统配置</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%90%8E%E7%BB%AD%E4%BD%BF%E7%94%A8"><span class="toc-number">1.3.</span> <span class="toc-text">后续使用</span></a></li></ol></li></ol></div></div><footer><nobr>Published with <a target="_blank" rel="noopener" href="http://hexo.io">Hexo</a></nobr><wbr><nobr> Theme <a target="_blank" rel="noopener" href="https://github.com/Yue-plus/hexo-theme-arknights">Arknights</a></nobr><wbr><nobr>by <a target="_blank" rel="noopener" href="https://github.com/Yue-plus">Yue_plus</a></nobr></footer></aside></main><canvas id="canvas-dust"></canvas><script src="/js/search.js"></script><script src="/js/arknights.js"></script><script src="//unpkg.com/lightgallery@2.7.1/lightgallery.min.js"></script><script src="//unpkg.com/lightgallery@2.7.1/plugins/zoom/lg-zoom.min.js"></script><script src="//unpkg.com/lightgallery@2.7.1/plugins/thumbnail/lg-thumbnail.min.js"></script><script src="/js/pjax.js"></script><script class="pjax-js">reset= () => {code.findCode();
+document.querySelector('.lg-container')?.remove()
+lightGallery(document.getElementById('post-bg'), {
+  plugins: [lgZoom,lgThumbnail],
+  selector: '.item-img'})}</script><script>window.addEventListener("load",() => {pjax = new Pjax({
+ cacheBust: false,
+ selectors: ['title','article','#aside-block','.pjax-js'],
+ switches: {'article': Pjax.switches.sideBySide},
+ switchesOptions: {
+   'article': {
+     classNames: {
+       remove: "pjax-out",
+       add: "pjax-in"
+     }
+   }
+ }
+});
+document.addEventListener("pjax:complete", reset);reset()})</script></body></html>
